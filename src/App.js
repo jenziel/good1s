@@ -3,6 +3,8 @@ import "./App.css";
 import { getTheaterShowtimes } from "./apiCalls";
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
+import Card from '../src/components/Card/Card';
+
 function App() {
   const [vidiotsShowtimes, setVidiotsShowtimes] = useState([]);
   const dayjs = require('dayjs')
@@ -42,8 +44,9 @@ function App() {
       ) : (
         <main className='App'>
           <h1>Good1s</h1>
+          <Card />
           {vidiotsShowtimes.map((showtime, index) => (
-            <div key={showtime.key}>
+            <div key={showtime.key} className='showtime-card'>
               <p>{dayjs(showtime.date).format('MMM. D YYYY | hh:mm A')}</p>
               <p>{showtime.movies[0].title}, {showtime.movies[0].year} | dir. by {showtime.movies[0].director}</p>
               <p>_______________________________</p>
