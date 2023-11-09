@@ -1,8 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  height: 100vh;
+  width: 100vw;
+}
+
 .App {
   text-align: center;
   font-family: 'Inter', sans-serif;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 1rem;
 }
 h1 {
   font-family: 'Inter', sans-serif;

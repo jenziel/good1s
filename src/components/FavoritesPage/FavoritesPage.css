@@ -1,0 +1,19 @@
+.favorited-page {
+    display: flex;
+    flex-direction: column;
+
+}
+.nav-btn {
+   position: absolute;
+   top: 90dvh;
+   left: 90dvw; 
+   height: 2.5rem;
+   padding: .5rem;
+   font-size: 1rem;
+   border-radius: .5rem;
+   background-color: white;
+   cursor: pointer;
+}
+.page-title {
+    margin-top: 4rem;
+}
