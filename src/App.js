@@ -1,75 +1,72 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getTheaterShowtimes } from "./apiCalls";
-import dayjs from 'dayjs';
-import 'dayjs/locale/en';
-import Card from '../src/components/Card/Card';
-import FavoritesPage from '../src/components/FavoritesPage/FavoritesPage'
+import { getTheaterKeys} from "./apiCalls";
+import "dayjs/locale/en";
+import FavoritesPage from "../src/components/FavoritesPage/FavoritesPage";
 import CardContainer from "./components/CardContainer/CardContainer";
 import { Routes, Route } from "react-router-dom";
-import Header from './components/Header/Header'
-import NavBard from './components/NavBar/NavBar'
+
 function App() {
-  const dayjs = require('dayjs')
-  dayjs.locale('en');
-  const today = dayjs();
-  const [vidiotsShowtimes, setVidiotsShowtimes] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(today)
-  const vidiots = "vidiots";
+  const dayjs = require("dayjs");
+  dayjs.locale("en");
+  const [selectedDate, setSelectedDate] = useState(dayjs().toISOString());
+  const [theaterData, setTheaterData] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
-    console.log("selectedDate has been updated to", selectedDate)
-    console.log('today', today)
-
-  }, [selectedDate])
-  function showtimesHelper(movieArray) {
-    const updatedArray = movieArray.map((movieObj) => {
-      return { date: movieObj.date, movies: movieObj.movies, key: movieObj.id };
-    });
-    return updatedArray;
-  }
-
-  function getMovies(theaterKey) {
-    getTheaterShowtimes(theaterKey)
-      .then((data) => {
-        console.log("vidiots data", data);
-        const newData = showtimesHelper(data);
-        setVidiotsShowtimes(newData);
+  function getTheaterKeysArray() {
+    getTheaterKeys().then((data) => {
+      Promise.all(
+        data.map((theater) => {
+          return fetch(`https://teleology.foundation/movies/${theater.key}`)
+            .then((response) => response.json())
+            .then((showtimes) => {
+              return { ...theater, showtimes: showtimes };  
+            });
+        })
+      ).then((responses) => {
+        return setTheaterData(responses)
       })
-      .then(() => {
-        console.log("vidiots showtimes", vidiotsShowtimes);
-      });
+    });
   }
 
+
   useEffect(() => {
-    getMovies(vidiots);
+    getTheaterKeysArray()
   }, []);
-  useEffect(() =>{
-    console.log(vidiotsShowtimes)
-  }, [vidiotsShowtimes])
+
+  useEffect(() => {
+    console.log('theaterData', theaterData);
+  }, [theaterData]);
 
   return (
     <div>
-      {/* <Header /> */}
-      {vidiotsShowtimes.length === 0 ? (
+      {theaterData.length === 0 ? (
         <p>loading...</p>
-        ) : (
-          <main className='App'>
-          
+      ) : (
+        <main className='App'>
           <Routes>
-          <Route path='/' element={<CardContainer vidiotsShowtimes={vidiotsShowtimes} setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>}/>
-          <Route path='/favorites' element={<FavoritesPage/>}/>
+            <Route
+              path='/'
+              element={
+                <CardContainer
+                  theaterData={theaterData}
+                  setSelectedDate={setSelectedDate}
+                  selectedDate={selectedDate}
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                />
+              }
+            />
+            <Route
+              path='/favorites'
+              element={
+                <FavoritesPage
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                />
+              }
+            />
           </Routes>
-
-          {/* {vidiotsShowtimes.map((showtime, index) => (
-            <div key={showtime.key} className='showtime-card'>
-              <p>{dayjs(showtime.date).format('MMM. D YYYY | hh:mm A')}</p>
-              <p>{showtime.movies[0].title}, {showtime.movies[0].year} | dir. by {showtime.movies[0].director}</p>
-              <p>_______________________________</p>
-            </div>
-          ))} */}
-
-        
         </main>
       )}
     </div>

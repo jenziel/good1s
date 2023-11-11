@@ -6,8 +6,6 @@ function NavBar({setSelectedDate, selectedDate}) {
   const dayjs = require("dayjs");
   const today = dayjs();
   const date30DaysLater = today.add(30, "day");
-  console.log(today);
-
   return (
     <nav>
       <label htmlFor='date'>Select a date: </label>
