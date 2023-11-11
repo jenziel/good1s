@@ -12,7 +12,7 @@ function CardContainer({ theaterData, setSelectedDate, selectedDate, favorites, 
     const showtimeDate = dayjs(showtime.date).format("YYYY-MM-DD");
     const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
       if (showtimeDate === selectedDateFormatted) {
-       return acc.push(showtime)
+       return acc.push({...showtime, theaterName: theater.name})
       }
     })
     return acc
@@ -33,14 +33,14 @@ function CardContainer({ theaterData, setSelectedDate, selectedDate, favorites, 
 
 } )
     
-  
+const dayOfWeekNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   return (
     <div>
       <NavBar setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
       <Link to='/favorites'>
         <button className='nav-btn'>favorited</button>
       </Link>
-      <h1>Showing screenings on {dayjs(selectedDate).format("MMM. D")}</h1>
+      <h1>{dayOfWeekNames[dayjs(selectedDate).day()]} {dayjs(selectedDate).format("MMM. D")}</h1>
       <div className='cards-container'>
         {showtimeCards}
         </div>
