@@ -2,40 +2,25 @@ import React from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 
-function NavBar() {
-    const handleTheaterSelection = () => {
+function NavBar({setSelectedDate, selectedDate}) {
+  const dayjs = require("dayjs");
+  const today = dayjs();
+  const date30DaysLater = today.add(30, "day");
+  console.log(today);
 
-    }
   return (
     <nav>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>Academy Museum</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>2220 Arts + Archives</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>Aero Theatre - American Cinematheque</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>Alamo Drafthouse Cinema</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>Billy Wilder Theater</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>Brain Dead Studios</p>
-      </button>
-      <button onClick={handleTheaterSelection } className='theater-btn'>
-        <p>Los Feliz 3 Theatre - American Cinematheque</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>Vidiots</p>
-      </button>
-      <button onClick={handleTheaterSelection} className='theater-btn'>
-        <p>WHAMMY!</p>
-      </button>
+      <label htmlFor='date'>Select a date: </label>
 
+      <input
+        type='date'
+        id='date'
+        name='date'
+        value={today}
+        min={today}
+        max={date30DaysLater}
+        onChange={event => setSelectedDate(event.target.value)}
+      />
     </nav>
   );
 }

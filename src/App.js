@@ -10,12 +10,18 @@ import { Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header'
 import NavBard from './components/NavBar/NavBar'
 function App() {
-  const [vidiotsShowtimes, setVidiotsShowtimes] = useState([]);
-  
   const dayjs = require('dayjs')
   dayjs.locale('en');
+  const today = dayjs();
+  const [vidiotsShowtimes, setVidiotsShowtimes] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(today)
   const vidiots = "vidiots";
 
+  useEffect(() => {
+    console.log("selectedDate has been updated to", selectedDate)
+    console.log('today', today)
+
+  }, [selectedDate])
   function showtimesHelper(movieArray) {
     const updatedArray = movieArray.map((movieObj) => {
       return { date: movieObj.date, movies: movieObj.movies, key: movieObj.id };
@@ -51,7 +57,7 @@ function App() {
           <main className='App'>
           
           <Routes>
-          <Route path='/' element={<CardContainer vidiotsShowtimes={vidiotsShowtimes}/>}/>
+          <Route path='/' element={<CardContainer vidiotsShowtimes={vidiotsShowtimes} setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>}/>
           <Route path='/favorites' element={<FavoritesPage/>}/>
           </Routes>
 

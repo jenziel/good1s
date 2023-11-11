@@ -3,7 +3,9 @@ import "./CardContainer.css";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
-function CardContainer({ vidiotsShowtimes }) {
+function CardContainer({ vidiotsShowtimes, setSelectedDate, selectedDate }) {
+  const dayjs = require('dayjs')
+  dayjs.locale('en');
   const showtimeCards = vidiotsShowtimes.map((showtime, index) => {
     return (
       <Card
@@ -23,10 +25,11 @@ function CardContainer({ vidiotsShowtimes }) {
         <h1 className='page-title'>today</h1>
         <p>next day</p>
       </div> */}
-      <NavBar />
+      <NavBar setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
       <Link to='/favorites'>
         <button className='nav-btn'>favorited</button>
       </Link>
+      <h1>Showing screenings on {dayjs(selectedDate).format("MMM. D")}</h1>
       <div className='cards-container'>{showtimeCards}</div>
     </div>
   );
