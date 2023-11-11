@@ -4,13 +4,24 @@ import { getTheaterShowtimes } from "./apiCalls";
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import Card from '../src/components/Card/Card';
-
+import FavoritesPage from '../src/components/FavoritesPage/FavoritesPage'
+import CardContainer from "./components/CardContainer/CardContainer";
+import { Routes, Route } from "react-router-dom";
+import Header from './components/Header/Header'
+import NavBard from './components/NavBar/NavBar'
 function App() {
-  const [vidiotsShowtimes, setVidiotsShowtimes] = useState([]);
   const dayjs = require('dayjs')
   dayjs.locale('en');
+  const today = dayjs();
+  const [vidiotsShowtimes, setVidiotsShowtimes] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(today)
   const vidiots = "vidiots";
 
+  useEffect(() => {
+    console.log("selectedDate has been updated to", selectedDate)
+    console.log('today', today)
+
+  }, [selectedDate])
   function showtimesHelper(movieArray) {
     const updatedArray = movieArray.map((movieObj) => {
       return { date: movieObj.date, movies: movieObj.movies, key: movieObj.id };
@@ -39,22 +50,26 @@ function App() {
 
   return (
     <div>
+      {/* <Header /> */}
       {vidiotsShowtimes.length === 0 ? (
         <p>loading...</p>
-      ) : (
-        <main className='App'>
-          <h1>Good1s</h1>
-          <Card />
-          {vidiotsShowtimes.map((showtime, index) => (
+        ) : (
+          <main className='App'>
+          
+          <Routes>
+          <Route path='/' element={<CardContainer vidiotsShowtimes={vidiotsShowtimes} setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>}/>
+          <Route path='/favorites' element={<FavoritesPage/>}/>
+          </Routes>
+
+          {/* {vidiotsShowtimes.map((showtime, index) => (
             <div key={showtime.key} className='showtime-card'>
               <p>{dayjs(showtime.date).format('MMM. D YYYY | hh:mm A')}</p>
               <p>{showtime.movies[0].title}, {showtime.movies[0].year} | dir. by {showtime.movies[0].director}</p>
               <p>_______________________________</p>
             </div>
-          ))}
-          {/* <p>{dayjs(vidiotsShowtimes[0].date).format('MMM. D YYYY | hh:mm A')}</p>
-          <p>{vidiotsShowtimes[0].movies[0].title}, {vidiotsShowtimes[0].movies[0].year} | dir. by {vidiotsShowtimes[0].movies[0].director}</p> */}
+          ))} */}
 
+        
         </main>
       )}
     </div>

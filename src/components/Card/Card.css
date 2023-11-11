@@ -1,16 +1,23 @@
 .card {
-    height: 15vh;
+    height: 25vh;
     border: solid .1rem black;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    width: 20vw;
-    align-items: flex-end;
+    align-items: center;
+    text-align: center;
+    width: 30vw;
     margin: 1rem;
+    padding: .25vh;
+}
+.favorites-btn-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }
 .favorites-btn{
     margin-left: 4rem;
-    background-color: white;
+    background-color: lightgray;
     border: none;
     margin: .5rem;
     padding: 0;

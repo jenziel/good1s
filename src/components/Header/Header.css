@@ -1,0 +1,14 @@
+header {
+    background-color: lightgray;
+    display:flex;
+    flex-direction:row;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: .5dvh;
+    padding-left: 17.5dvw;
+    padding-right: 19dvw;
+}
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
