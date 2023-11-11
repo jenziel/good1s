@@ -21,6 +21,8 @@ function CardContainer({ theaterData, setSelectedDate, selectedDate, favorites, 
   
  const showtimeCards = 
    justSelectedDay.map(showtime => {
+    if (showtime.movies.length > 0){
+
       return (
         <Card
         showtime={showtime}
@@ -30,6 +32,7 @@ function CardContainer({ theaterData, setSelectedDate, selectedDate, favorites, 
           setFavorites={setFavorites}
         />
       );
+    }
 
 } )
     

@@ -52,6 +52,7 @@ function Card({
 
 
         {showtime.movies.length === 1 ? (
+          showtime.movies[0].director && 
           showtime.movies[0].director.trim() ? (
             <div>
            
@@ -80,14 +81,20 @@ function Card({
           
           <div>
             {showtime.movies.map((movie) => (
+              <div>
+
               <p key={movie.title} className='card-title-extended'>
                 <span className='card-title'>
 
                 {" "}
                 {movie.title}
                 </span>
-                , {movie.year} | {movie.director}
+                , {movie.year}
               </p>
+                <p className='card-director'>
+                  {movie.director}
+                </p>
+                </div>
             ))}
           </div>
         )}
