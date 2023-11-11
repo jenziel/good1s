@@ -46,9 +46,16 @@ function Card({
       <Link to={showtime.theaterUrl} style={{color: 'inherit', textDecoration: 'inherit'}}>
         <p className='card-theater-name'>{showtime.theaterName}</p>
       </Link>
+      <Link to={showtime.URL} style={{color: 'inherit', textDecoration: 'inherit'}}>
+
+      <div className='showing-info'>
+
+
         {showtime.movies.length === 1 ? (
           showtime.movies[0].director.trim() ? (
             <div>
+           
+             
             <p className='card-title-extended'><span className='card-title'>
 
             {" "}
@@ -56,15 +63,20 @@ function Card({
             </span>
             {showtime.movies[0].year ? `, ${showtime.movies[0].year}` : ""}
           </p>
+        
           <p className='card-director'>{" "}
             {showtime.movies[0].director} </p>
             </div>
           )
-          : (<p className='card-title-extended'><span className='card-title'>
+          : (
+          
+          <p className='card-title-extended'><span className='card-title'>
           {" "}
           {showtime.movies[0].title} </span>
           {showtime.movies[0].year ? `, ${showtime.movies[0].year}` : ""}
-        </p>) ) :(
+        </p>
+        
+        ) ) :(
           
           <div>
             {showtime.movies.map((movie) => (
@@ -79,12 +91,17 @@ function Card({
             ))}
           </div>
         )}
+      </div>
         
         <div className='timeBox'>
 
         <p className='card-date'>{dayOfWeekNames[dayjs(showtime.date).day()]} {dayjs(showtime.date).format("MMM. D")}</p>
+       
+              
         <p className='card-time'>{dayjs(showtime.date).format("hh:mm A")}</p>
+             
         </div>
+        </Link>
       </div>
     </div>
   );
