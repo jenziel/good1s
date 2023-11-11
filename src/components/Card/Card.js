@@ -4,6 +4,7 @@ import heartOutline from "../../images/heartOutline.png";
 import "./Card.css";
 import "dayjs/locale/en";
 import { useState } from "react";
+import { Link } from 'react-router-dom'
 
 function Card({
   //  title, year, director, date,
@@ -42,30 +43,38 @@ function Card({
         </button>
       </div>
      <div className='card-info' id={key}>
-        <p className='card-theaterName'>{showtime.theaterName}</p>
+      <Link to={showtime.theaterUrl} style={{color: 'inherit', textDecoration: 'inherit'}}>
+        <p className='card-theater-name'>{showtime.theaterName}</p>
+      </Link>
         {showtime.movies.length === 1 ? (
           showtime.movies[0].director.trim() ? (
             <div>
-            <p className='card-title'>
+            <p className='card-title-extended'><span className='card-title'>
+
             {" "}
             {showtime.movies[0].title}
+            </span>
             {showtime.movies[0].year ? `, ${showtime.movies[0].year}` : ""}
           </p>
-          <p className='card-director'>dir. by {" "}
+          <p className='card-director'>{" "}
             {showtime.movies[0].director} </p>
             </div>
           )
-          : (<p className='card-title'>
+          : (<p className='card-title-extended'><span className='card-title'>
           {" "}
-          {showtime.movies[0].title} 
+          {showtime.movies[0].title} </span>
           {showtime.movies[0].year ? `, ${showtime.movies[0].year}` : ""}
         </p>) ) :(
           
           <div>
             {showtime.movies.map((movie) => (
-              <p key={movie.title} className='card-title'>
+              <p key={movie.title} className='card-title-extended'>
+                <span className='card-title'>
+
                 {" "}
-                {movie.title}, {movie.year} | dir. by {movie.director}
+                {movie.title}
+                </span>
+                , {movie.year} | {movie.director}
               </p>
             ))}
           </div>

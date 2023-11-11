@@ -33,8 +33,13 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.card-theater-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
 .card-title {
-    /* font-style: italic; */
+    font-style: italic;
+    font-weight: 700;
     font-size: 1.2rem;
 }
 .card-time {

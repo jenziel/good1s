@@ -12,7 +12,7 @@ function CardContainer({ theaterData, setSelectedDate, selectedDate, favorites, 
     const showtimeDate = dayjs(showtime.date).format("YYYY-MM-DD");
     const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
       if (showtimeDate === selectedDateFormatted) {
-       return acc.push({...showtime, theaterName: theater.name})
+       return acc.push({...showtime, theaterName: theater.name, theaterUrl: theater.url})
       }
     })
     return acc
