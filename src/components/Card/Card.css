@@ -27,3 +27,25 @@
     height: 1rem;
     width: 1rem;
 }
+.card-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-title {
+    /* font-style: italic; */
+    font-size: 1.2rem;
+}
+.card-time {
+    color: blue;
+    margin-top: 2rem;
+    margin: .2rem;
+}
+/* .timeBox {
+    display: flex;
+    flex-direction: row;
+} */
+.card-date {
+    color: lightgray;
+}
