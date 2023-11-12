@@ -45,7 +45,7 @@ const dayOfWeekNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 
       <Link to='/favorites'>
         <button className='favorites-nav-btn nav-btn'>favorited</button>
       </Link>
-      <h1>{dayOfWeekNames[dayjs(selectedDate).day()]} {dayjs(selectedDate).format("MMM. D")}</h1>
+      <h1 className='date-display'>{dayOfWeekNames[dayjs(selectedDate).day()]} {dayjs(selectedDate).format("MMM. D")}</h1>
       <div className='cards-container'>
         {showtimeCards}
         </div>

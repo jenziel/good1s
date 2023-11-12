@@ -9,6 +9,8 @@ function NavBar({setSelectedDate, selectedDate}) {
   const date30DaysLater = today.add(30, "day");
   return (
     <nav>
+      <form>
+
       <label htmlFor='date'>Select a date: </label>
 
       <input
@@ -20,6 +22,7 @@ function NavBar({setSelectedDate, selectedDate}) {
         max={date30DaysLater}
         onChange={event => setSelectedDate(event.target.value)}
       />
+      </form>
     </nav>
   );
 }

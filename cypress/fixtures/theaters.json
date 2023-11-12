@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "64eef52ea62c8f0aefbfb1e0",
+    "name": "Brain Dead Studios",
+    "url": "https://studios.wearebraindead.com/",
+    "key": "wearebraindead",
+    "location": "Fairfax",
+    "description": "",
+    "status": true,
+    "__v": 0
+    },
+    {
+      "_id": "64eefa079a974cac1db32e9a",
+      "name": "Vidiots",
+      "url": "https://vidiotsfoundation.org/",
+      "key": "vidiots",
+      "location": "Eagle Rock",
+      "description": "",
+      "status": true,
+      "__v": 0
+      }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "652f9ec8a6254cca6fe0375f",
+    "theater": "vidiots",
+    "date": "2023-11-12T21:00:00.000Z",
+    "dateString": "2058",
+    "QA": false,
+    "URL": "https://vidiotsfoundation.org/purchase/556634/",
+    "description": "<p><strong>Screenwriter</strong>: Robert Rodriguez</p>\n<p><strong>Producers</strong>: Elizabeth Avellan<span>, </span>Robert Rodriguez</p>\n<p><span>Once upon a time, two enemy spies played by Antonio Banderas and Carla Gugino fell in love. They started a family and raised two smart, talented children together, and they all had wonderful lives. And then everything changed when a demented children’s show host kidnapped Mom and Dad. Now, it’s up to these kids to save the day by becoming Spy Kids!</span></p>\n<p><span>Visionary filmmaker Robert Rodriguez brings the unique brand of excitement he previously cultivated in action cinema to a film that is fun for all ages. Equal parts <em>James Bond</em> and <em>Willy Wonka</em>, stars Alexa PenaVega, and Daryl Sabara prove that kids are capable of great things and there is nothing stronger in this world than the power of family.</span></p>\n",
+    "title": "Spy Kids",
+    "edited": false,
+    "hide": false,
+    "movies": [
+      {
+        "title": "Spy Kids",
+        "runtime": "88",
+        "director": "Robert Rodriguez",
+        "year": "2001",
+        "format": "DCP",
+        "_id": "6550a245ebe3f8edc2870407"
+      }
+    ],
+    "__v": 25
+  },
+  {
+    "_id": "652f9ec8a6254cca6fe03763",
+    "theater": "vidiots",
+    "date": "2023-11-12T23:30:00.000Z",
+    "dateString": "2090",
+    "QA": false,
+    "URL": "https://vidiotsfoundation.org/purchase/556635/",
+    "description": "<p><strong>Screenwriter</strong>: Marion Parsonnet</p>\n<p><strong>Producer</strong>: Virginia Van Upp</p>\n<p>Slink into <strong>Noirvember</strong> at Vidiots and don’t forget to put the blame on Mame, boys! Rita Hayworth scorches the screen in this flaming hot Film Noir. Love, hate, jealousy, and dirty money intermingle in Argentina as a small-time gambler begins working for the husband of his old flame. Barbs and sparks fly between Hayworth and Ford as they navigate their love-hate relationship through dagger-sharp dialogue and undeniable chemistry. Hayworth is beyond mesmerizing throughout, but particularly dazzling in a series of provocative musical numbers demonstrating her decades of dance training and her lithe and effortless body movement. It would be a crime to miss this sultry classic.</p>\n",
+    "title": "Gilda",
+    "edited": false,
+    "hide": false,
+    "movies": [
+      {
+        "title": "Gilda",
+        "runtime": "110",
+        "director": "Charles Vidor",
+        "year": "1946",
+        "format": "DCP",
+        "_id": "6550a245ebe3f8edc287040b"
+      }
+    ],
+    "__v": 25
+  }
+ 
+]
