@@ -1,6 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 function NavBar({setSelectedDate, selectedDate}) {
   const dayjs = require("dayjs");
@@ -24,3 +25,8 @@ function NavBar({setSelectedDate, selectedDate}) {
 }
 
 export default NavBar;
+
+NavBar.propTypes = {
+  setSelectedDate: PropTypes.func.isRequired,
+  selectedDate: PropTypes.string.isRequired,
+};

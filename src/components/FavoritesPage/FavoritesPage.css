@@ -1,19 +1,40 @@
 .favorited-page {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
+
+.fav-title {
+  margin-bottom: 3rem;
+  font-weight: 400;
 }
-.nav-btn {
-   position: absolute;
-   top: 90dvh;
-   left: 90dvw; 
-   height: 2.5rem;
-   padding: .5rem;
-   font-size: 1rem;
-   border-radius: .5rem;
-   background-color: lightyellow;
-   cursor: pointer;
-}
+
 .page-title {
-    margin-top: 4rem;
+  margin-top: 4rem;
+}
+
+.favorites-nav-btn {
+  position: absolute;
+  top: 90dvh;
+  left: 90dvw;
+}
+
+.nav-btn {
+  height: 2.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  background-color: lightyellow;
+  cursor: pointer;
+}
+
+.favorited-burst {
+  height: 16rem;
+  margin-bottom: 2rem;
+}
+.favorited-message {
+  margin-top: 2rem;
+  font-size: 1.4rem;
 }

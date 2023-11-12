@@ -3,6 +3,8 @@ import "./CardContainer.css";
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
+import PropTypes from 'prop-types';
+
 function CardContainer({ theaterData, setSelectedDate, selectedDate, favorites, setFavorites }) {
   const dayjs = require('dayjs')
   dayjs.locale('en');
@@ -41,7 +43,7 @@ const dayOfWeekNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 
     <div>
       <NavBar setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
       <Link to='/favorites'>
-        <button className='nav-btn'>favorited</button>
+        <button className='favorites-nav-btn nav-btn'>favorited</button>
       </Link>
       <h1>{dayOfWeekNames[dayjs(selectedDate).day()]} {dayjs(selectedDate).format("MMM. D")}</h1>
       <div className='cards-container'>
@@ -52,3 +54,11 @@ const dayOfWeekNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 
 }
 
 export default CardContainer;
+
+CardContainer.propTypes = {
+  theaterData: PropTypes.array.isRequired,
+  setSelectedDate: PropTypes.func.isRequired,
+  selectedDate: PropTypes.string.isRequired,
+  favorites: PropTypes.array.isRequired,
+  setFavorites: PropTypes.func.isRequired
+};
