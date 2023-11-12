@@ -4,6 +4,13 @@ import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import PropTypes from "prop-types";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function CardContainer({
   theaterData,
@@ -12,13 +19,14 @@ function CardContainer({
   favorites,
   setFavorites,
 }) {
+  const pacificTimeZone = "America/Los_Angeles";
   const dayjs = require("dayjs");
   dayjs.locale("en");
 
   const justSelectedDay = theaterData.reduce((acc, theater) => {
     if (theater.showtimes && Array.isArray(theater.showtimes)) {
       theater.showtimes.forEach((showtime) => {
-        const showtimeDate = dayjs(showtime.date).format("YYYY-MM-DD");
+        const showtimeDate = dayjs.utc(showtime.date).tz(pacificTimeZone).format("YYYY-MM-DD");
         const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
         if (showtimeDate === selectedDateFormatted) {
           return acc.push({
@@ -64,7 +72,7 @@ function CardContainer({
       </Link>
       <h1 className='date-display'>
         {dayOfWeekNames[dayjs(selectedDate).day()]}{" "}
-        {dayjs(selectedDate).format("MMM. D")}
+        {dayjs(selectedDate).tz(pacificTimeZone).format("MMM. D")}
       </h1>
       <div className='cards-container'>{showtimeCards}</div>
     </div>
