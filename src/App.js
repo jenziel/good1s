@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getTheaterKeys} from "./apiCalls";
+
 import "dayjs/locale/en";
 import FavoritesPage from "../src/components/FavoritesPage/FavoritesPage";
 import CardContainer from "./components/CardContainer/CardContainer";
@@ -15,43 +15,72 @@ function App() {
   const [theaterData, setTheaterData] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const[errorMessage, setErrorMessage] = useState("")
+  const [needToRerender, setNeedToRerender] = useState(false)
 
-  function getTheaterKeysArray() {
-    getTheaterKeys().then((data) => {
-      Promise.all(
-        data.map((theater) => {
-          return fetch(`https://teleology.foundation/movies/${theater.key}`)
-            .then((response) => response.json())
-            .then((showtimes) => {
-              return { ...theater, showtimes: showtimes };  
-            });
-        })
-      ).then((responses) => {
-        return setTheaterData(responses)
+
+  function getTheaterKeys() {
+    return fetch('https://teleology.foundation/movies/theaters')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Unable to get theater info. ${response.statusText}`);
+        }
+        return response.json();
       })
-    });
+      .catch(error => {
+        setErrorMessage(error.message);
+        throw error;
+      });
   }
 
+  function getTheaterKeysArray() {
+    return getTheaterKeys()
+      .then(data => {
+       return  Promise.all(
+          data.map(theater =>
+            fetch(`https://teleology.foundation/movies/${theater.key}`)
+              .then(response => response.json())
+              .then(showtimes => ({ ...theater, showtimes: showtimes }))
+          )
+        );
+      })
+      .then(responses => {
+        setTheaterData(responses);
+      })
+      .catch(error => {
+        setErrorMessage(error.message);
+      });
+  }
+
+  
+  // useEffect(() => {
+  //   getTheaterKeysArray()
+  // }, []);
 
   useEffect(() => {
-    getTheaterKeysArray()
-  }, []);
-
-  useEffect(() => {
-    console.log('theaterData', theaterData);
-  }, [theaterData]);
-
+    if(errorMessage === ""){
+      console.log("hi")
+      getTheaterKeysArray()
+    }
+  }, [errorMessage]);
+  
   const resetError = () => {
     setErrorMessage("")
   }
+  
+
   return (
     <div>
-      {theaterData.length === 0 ? (
-       <Loading/>
-      ) : (
+      {theaterData.length === 0 && errorMessage ? (
+        <ErrorComponent errorMessage={errorMessage} resetError={resetError} />
+      ) : 
+       (
         <main className='App'>
           <Routes>
-            {errorMessage ? (
+            {theaterData.length === 0 ? (
+               <Route
+               path='/'element={<Loading/>} />
+            ) : 
+            errorMessage ? (
               <Route
               path='/'element={<ErrorComponent errorMessage={errorMessage} resetError={resetError}/>} />
             ) : (
@@ -64,6 +93,7 @@ function App() {
                     selectedDate={selectedDate}
                     favorites={favorites}
                     setFavorites={setFavorites}
+                  
                   />
                 }
               />
