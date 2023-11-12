@@ -16,6 +16,24 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const[errorMessage, setErrorMessage] = useState("")
 
+ function getTheaterKeys(){
+    return fetch('https://teleology.foundation/movies/theaters')
+    .then(response =>{
+        if(!response.ok){
+            throw new Error(`Unable to get theater info.`)
+        }
+       else {
+        return  response.json()
+       }
+    })
+    .catch((error) => {
+      
+      setErrorMessage(error);
+      throw error;
+    }
+    )
+}
+
   function getTheaterKeysArray() {
     getTheaterKeys().then((data) => {
       Promise.all(
@@ -28,6 +46,10 @@ function App() {
         })
       ).then((responses) => {
         return setTheaterData(responses)
+      })
+      .catch(response => {
+        console.log('response', response)
+        return setErrorMessage(response)
       })
     });
   }
@@ -46,12 +68,17 @@ function App() {
   }
   return (
     <div>
-      {theaterData.length === 0 ? (
-       <Loading/>
-      ) : (
+      {theaterData.length === 0 && errorMessage ? (
+        <ErrorComponent errorMessage={errorMessage} resetError={resetError} />
+      ) : 
+       (
         <main className='App'>
           <Routes>
-            {errorMessage ? (
+            {theaterData.length === 0 ? (
+               <Route
+               path='/'element={<Loading/>} />
+            ) : 
+            errorMessage ? (
               <Route
               path='/'element={<ErrorComponent errorMessage={errorMessage} resetError={resetError}/>} />
             ) : (
