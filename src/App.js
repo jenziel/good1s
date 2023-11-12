@@ -51,26 +51,22 @@ function App() {
       });
   }
 
+  
+  // useEffect(() => {
+  //   getTheaterKeysArray()
+  // }, []);
+
   useEffect(() => {
     if(errorMessage === ""){
-
+      console.log("hi")
       getTheaterKeysArray()
     }
   }, [errorMessage]);
-
-
-
-  useEffect(() => {
-    getTheaterKeysArray()
-  }, []);
-
-  useEffect(() => {
-    console.log('theaterData', theaterData);
-  }, [theaterData]);
-
+  
   const resetError = () => {
     setErrorMessage("")
   }
+  
 
   return (
     <div>

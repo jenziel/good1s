@@ -31,7 +31,7 @@ function CardContainer({
     }
     return acc;
   }, []);
-  console.log("justSelectedDay", justSelectedDay);
+
 
   const showtimeCards = justSelectedDay.map((showtime) => {
     if (showtime.movies.length > 0) {
