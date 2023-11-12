@@ -8,7 +8,6 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
-
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -20,13 +19,11 @@ function CardContainer({
   setFavorites,
 }) {
   const pacificTimeZone = "America/Los_Angeles";
-  const dayjs = require("dayjs");
-  dayjs.locale("en");
 
   const justSelectedDay = theaterData.reduce((acc, theater) => {
     if (theater.showtimes && Array.isArray(theater.showtimes)) {
       theater.showtimes.forEach((showtime) => {
-        const showtimeDate = dayjs.utc(showtime.date).tz(pacificTimeZone).format("YYYY-MM-DD");
+        const showtimeDate = dayjs(showtime.date).tz(pacificTimeZone).format("YYYY-MM-DD");
         const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
         if (showtimeDate === selectedDateFormatted) {
           return acc.push({
@@ -40,14 +37,12 @@ function CardContainer({
     return acc;
   }, []);
 
-
   const showtimeCards = justSelectedDay.map((showtime) => {
     if (showtime.movies.length > 0) {
       return (
         <Card
           showtime={showtime}
           key={showtime.key}
-          // id={showtime.id}
           favorites={favorites}
           setFavorites={setFavorites}
         />
@@ -64,6 +59,7 @@ function CardContainer({
     "Friday",
     "Saturday",
   ];
+
   return (
     <div>
       <NavBar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
@@ -72,7 +68,7 @@ function CardContainer({
       </Link>
       <h1 className='date-display'>
         {dayOfWeekNames[dayjs(selectedDate).day()]}{" "}
-        {dayjs(selectedDate).tz(pacificTimeZone).format("MMM. D")}
+        {dayjs(selectedDate).format("MMM. D")}
       </h1>
       <div className='cards-container'>{showtimeCards}</div>
     </div>

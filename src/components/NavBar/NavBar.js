@@ -1,25 +1,33 @@
 import React from "react";
 import "./NavBar.css";
 import PropTypes from 'prop-types'
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import {useState} from 'react'
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function NavBar({setSelectedDate, selectedDate}) {
   const dayjs = require("dayjs");
   const today = dayjs();
   const date30DaysLater = today.add(30, "day");
 
+  const [inputValue, setInputValue] = useState(today.format('YYYY-MM-DD'));
   const handleDateChange = (event) => {
-    const selectedDate = dayjs(event.target.value);
-
-    if (selectedDate.isBefore(today, 'day')) {
-      alert("Please select a date in the present or future ☺");
-    } 
-    if (selectedDate.isAfter(date30DaysLater, 'day')) {
+    const newSelectedDate = dayjs(event.target.value);
+  
+    if (newSelectedDate.isBefore(today, 'day')) {
+      alert("Please select a date in the future ☺");
+    } else if (newSelectedDate.isAfter(date30DaysLater, 'day')) {
       alert(`Please select a date on or before ${date30DaysLater.format('MMM. D')}`)
-    } 
-    else {
-      setSelectedDate(event.target.value);
+    } else {
+      setInputValue(event.target.value);
+      setSelectedDate(event.target.value)
     }
   };
+ 
   
   return (
     <nav>
@@ -29,7 +37,7 @@ function NavBar({setSelectedDate, selectedDate}) {
         type='date'
         id='date'
         name='date'
-        value={today}
+        value={inputValue}
         min={today.format('YYYY-MM-DD')}
         max={date30DaysLater}
         onChange={handleDateChange}
