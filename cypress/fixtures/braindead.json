@@ -46,26 +46,26 @@
     "__v": 22
   },
   {
-    "_id": "653a2aa9a6254cca6fe08d43",
+    "_id": "653a2aa9a6254cca6fe08d67",
     "theater": "wearebraindead",
-    "date": "2023-11-15T03:30:00.000Z",
-    "dateString": "2096",
+    "date": "2023-11-23T03:00:00.000Z",
+    "dateString": "2074",
     "QA": false,
-    "URL": "https://tickets.wearebraindead.com/purchase/497486/",
-    "description": "<p>David Farrier unveils a truly unhinged web that starts with op-shops and car clamping and then unravels into a whole mess of lies and sosciopathy. A very Errol Morris/ Louis Theroux unfolding of the social dynamic, but it’s NZ, so basically set on the high street and in someone’s flat. Cottage investigation, if you will!</p>\n",
-    "title": "Mister Organ",
+    "URL": "https://tickets.wearebraindead.com/purchase/497493/",
+    "description": "<p>The happiest man on earth, Chuckles Kaufman, made a stop motion, real AND surreal animation. Sad writer meets cute, looks around mournfully and so on. Man, stop motion is so impressive at all levels and always exquisite to look at. Very beautiful, poignant and touching, but still begs the question – is this the ultimate soft sad boy film?</p>\n",
+    "title": "Anomalisa",
     "edited": false,
     "hide": false,
     "movies": [
-      {
-        "title": "Mister Organ",
-        "runtime": "110",
-        "director": "David Farrier",
-        "year": "2022",
-        "format": "",
-        "_id": "6550a233ebe3f8edc28701ff"
-      }
+    {
+    "title": "Anomalisa",
+    "runtime": "115",
+    "director": "Charlie Kaufman & Duke Johnson",
+    "year": "2015",
+    "format": "DCP",
+    "_id": "6550a233ebe3f8edc2870227"
+    }
     ],
     "__v": 17
-  }
+    }
 ]

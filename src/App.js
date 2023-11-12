@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
 import "dayjs/locale/en";
 import FavoritesPage from "../src/components/FavoritesPage/FavoritesPage";
 import CardContainer from "./components/CardContainer/CardContainer";
 import { Routes, Route } from "react-router-dom";
 import ErrorComponent from '../src/components/ErrorComponent/ErrorComponent'
 import Loading from '../src/components/Loading/Loading'
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(timezone);
+dayjs.extend(utc);
 
 function App() {
   const dayjs = require("dayjs");
@@ -17,6 +21,9 @@ function App() {
   const[errorMessage, setErrorMessage] = useState("")
   const [needToRerender, setNeedToRerender] = useState(false)
 
+  useEffect(() => {
+    console.log('the selected date is', selectedDate)
+  }, [selectedDate])
 
   function getTheaterKeys() {
     return fetch('https://teleology.foundation/movies/theaters')
