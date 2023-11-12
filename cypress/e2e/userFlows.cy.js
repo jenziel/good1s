@@ -1,10 +1,8 @@
 describe('Displays data on pageload', () => {
   beforeEach(() => {
     const fixedDate = new Date('2023-11-12T12:00:00Z');
-    const futureDate = new Date()
-    futureDate.setDate(fixedDate.getDate() + 7);
-    const futureString = fixedDate.toISOString().split('T')[0];
-    cy.clock(fixedDate.getTime());
+    const timeZone = 'America/Los_Angeles';
+    cy.clock(fixedDate.getTime(), {timeZone: timeZone });
    cy.intercept('GET', 'https://teleology.foundation/movies/theaters', 
    {
     statusCode: 200,
@@ -66,6 +64,21 @@ describe('Displays data on pageload', () => {
   })
   it('should have a controlled form.  A user should not be able to enter a date before today or more than 30 days in the future.', ()=> {
     cy.visit('http://localhost:3000/')
-    cy.get('#date').type('2023-11-24').should('have.value', '2023-11-24');
+    cy.get('#date').type('2023-11-23').should('have.value', '2023-11-23').trigger('change')
+    cy.get('.date-display').contains('h1', 'Thursday Nov. 23')
+    cy.get('.card').contains('p', 'Brain Dead Studios')
+    cy.get('.card').contains('p', 'Anomalisa')
+    cy.get('.card').contains('p', '07:00 PM')
+    cy.on('window:alert', (message) => {
+      expect(message).to.equal('Please select a date on or before Dec. 12');
+    });
+    cy.get('#date').type('2024-01-01')
+  })
+  it('should prevent a user from entering a date in the past', () => {
+    cy.visit('http://localhost:3000/')
+    cy.on('window:alert', (message) => {
+      expect(message).to.equal('Please select a date in the future ☺');
+    });
+    cy.get('#date').type('2023-11-01')
   })
 });

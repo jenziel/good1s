@@ -24,7 +24,7 @@ function CardContainer({
     if (theater.showtimes && Array.isArray(theater.showtimes)) {
       theater.showtimes.forEach((showtime) => {
         const showtimeDate = dayjs(showtime.date).tz(pacificTimeZone).format("YYYY-MM-DD");
-        const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
+        const selectedDateFormatted = dayjs(selectedDate).tz(pacificTimeZone).format("YYYY-MM-DD");
         if (showtimeDate === selectedDateFormatted) {
           return acc.push({
             ...showtime,

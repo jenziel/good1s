@@ -17,14 +17,15 @@ function NavBar({setSelectedDate, selectedDate}) {
   const [inputValue, setInputValue] = useState(today.format('YYYY-MM-DD'));
   const handleDateChange = (event) => {
     const newSelectedDate = dayjs(event.target.value);
-  
+    const formattedDate = newSelectedDate.format('YYYY-MM-DD');
     if (newSelectedDate.isBefore(today, 'day')) {
       alert("Please select a date in the future ☺");
     } else if (newSelectedDate.isAfter(date30DaysLater, 'day')) {
       alert(`Please select a date on or before ${date30DaysLater.format('MMM. D')}`)
     } else {
-      setInputValue(event.target.value);
-      setSelectedDate(event.target.value)
+      const formattedDate = newSelectedDate.format('YYYY-MM-DD');
+      setInputValue(formattedDate);
+      setSelectedDate(formattedDate)
     }
   };
  
