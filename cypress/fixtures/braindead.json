@@ -1,0 +1,71 @@
+[
+  {
+    "_id": "653a2aa9a6254cca6fe08d3b",
+    "theater": "wearebraindead",
+    "date": "2023-11-13T01:00:00.000Z",
+    "dateString": "2062",
+    "QA": false,
+    "URL": "https://tickets.wearebraindead.com/purchase/497485/",
+    "description": "<p>Billy Murray is holding a whiskey glass up, Ribisi is distracted, and Johansson is stuck in limbo, singing karaoke. More of a mood mode, same as this whole series. Plug in your earphones and stare out the train window, yeah? </p>\n",
+    "title": "Desperately Seeking: Sofia Coppola in the New Millenium – Lost in Translation",
+    "edited": false,
+    "hide": false,
+    "movies": [
+      {
+        "title": "Desperately Seeking: Sofia Coppola in the New Millenium – Lost in Translation",
+        "runtime": "102",
+        "director": "Sofia Coppola",
+        "year": "2003",
+        "format": "DCP",
+        "_id": "6550a233ebe3f8edc28701f7"
+      }
+    ],
+    "__v": 17
+  },
+  {
+    "_id": "6533931fa6254cca6fe05717",
+    "theater": "wearebraindead",
+    "date": "2023-11-13T03:30:00.000Z",
+    "dateString": "2094",
+    "QA": false,
+    "URL": "https://tickets.wearebraindead.com/purchase/494755/",
+    "description": "<p>“Guys we need to talk…… at the next LA Loft at Braindead! LA Loft Movie Club is a film festival where participants and audiences get together to talk, enjoy food and drinks, and watch a program of one minute films they’ve created together. Our November screening “we need to talk” will explore every possible interpretation of those words across a variety of mediums. The festival is open to everyone— come by to see exactly what it is that we need to talk about!”</p>\n",
+    "title": "LA Loft Movie Club + NEWS FROM HOME",
+    "edited": false,
+    "hide": false,
+    "movies": [
+      {
+        "title": "LA Loft Movie Club + NEWS FROM HOME",
+        "runtime": "180",
+        "director": "     ",
+        "year": "2023",
+        "format": "DCP",
+        "_id": "6550a233ebe3f8edc28701fb"
+      }
+    ],
+    "__v": 22
+  },
+  {
+    "_id": "653a2aa9a6254cca6fe08d43",
+    "theater": "wearebraindead",
+    "date": "2023-11-15T03:30:00.000Z",
+    "dateString": "2096",
+    "QA": false,
+    "URL": "https://tickets.wearebraindead.com/purchase/497486/",
+    "description": "<p>David Farrier unveils a truly unhinged web that starts with op-shops and car clamping and then unravels into a whole mess of lies and sosciopathy. A very Errol Morris/ Louis Theroux unfolding of the social dynamic, but it’s NZ, so basically set on the high street and in someone’s flat. Cottage investigation, if you will!</p>\n",
+    "title": "Mister Organ",
+    "edited": false,
+    "hide": false,
+    "movies": [
+      {
+        "title": "Mister Organ",
+        "runtime": "110",
+        "director": "David Farrier",
+        "year": "2022",
+        "format": "",
+        "_id": "6550a233ebe3f8edc28701ff"
+      }
+    ],
+    "__v": 17
+  }
+]
