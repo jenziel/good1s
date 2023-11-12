@@ -29,7 +29,7 @@ describe('Displays data on pageload', () => {
     cy.get('.cards-container div:nth-child(2)').contains('p', 'LA Loft Movie Club + NEWS FROM HOME' )
     cy.get('.cards-container div:nth-child(2)').contains('p', '10:30 PM' )
     cy.get('.cards-container div:nth-child(3)').contains('p', 'Spy Kids' )
-    cy.get('.cards-container div:nth-child(3)').contains('p', '4:00 PM' )
+    cy.get('.cards-container div:nth-child(3)').contains('p', '04:00 PM' )
     cy.get('.card').last().contains('p', 'Vidiots')
     .get('.card').last().contains('p', 'Gilda')
     .get('.card').last().contains('p', '06:30 PM')
@@ -48,4 +48,17 @@ describe('Displays data on pageload', () => {
     cy.url().should('include', '/')
   }
   )
+  it('should handle a 404 error for a bad route.', ()=> {
+    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/nonsense')
+    cy.get('.error-title').contains('h1', 'Woops! Page not found.')
+    cy.get('.nav-btn').contains('back to home').click()
+    cy.url().should('include', '/')
+    cy.get('.date-display').contains('h1', 'Sunday Nov. 12')
+    cy.visit('http://localhost:3000/favorites/nonsense')
+    cy.get('.error-title').contains('h1', 'Woops! Page not found.')
+    cy.get('.nav-btn').contains('back to home').click()
+    cy.url().should('include', '/')
+    cy.get('.date-display').contains('h1', 'Sunday Nov. 12')
+  })
 });
