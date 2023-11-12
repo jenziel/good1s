@@ -17,12 +17,24 @@ function Card({
   setFavorites,
 }) {
   const pacificTimeZone = "America/Los_Angeles";
-  const [isFavorited, setIsFavorited] = useState(false);
 
-  const handleClick = () => {
-    setIsFavorited(!isFavorited);
-  };
+console.log(favorites, 'favorites')
+  function isFavorite() {
+    return favorites.some((favorite) => favorite['_id'] === showtime['_id']);
+  }
+  
 
+  function toggleFavorite(event){
+    event.preventDefault();
+    if (isFavorite()) {
+      const updatedFavorites = favorites.filter(
+        (favorite) => favorite['_id'] !== showtime['_id']
+      );
+      setFavorites(updatedFavorites);
+    } else {
+      setFavorites([...favorites, showtime]);
+    }
+  }
   const dayOfWeekNames = [
     "Sunday",
     "Monday",
@@ -36,8 +48,8 @@ function Card({
   return (
     <div className="card">
       <div className="favorites-btn-container">
-        <button className="favorites-btn" onClick={handleClick}>
-          {!isFavorited ? (
+        <button className="favorites-btn" onClick={toggleFavorite}>
+          {!isFavorite() ? (
             <img
               src={heartOutline}
               alt="heart outline"
