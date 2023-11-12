@@ -62,10 +62,10 @@ describe("Should render error component when the server is down", () => {
     cy.get('.card').should('have.length', 2 )
     .get('.card').first().contains('p', 'Vidiots')
     .get('.card').first().contains('p', 'Spy Kids' )
-    .get('.card').first().contains('p', '04:00 PM')
+    .get('.card').first().contains('p', '01:00 PM')
     cy.get('.card').last().contains('p', 'Vidiots')
     .get('.card').last().contains('p', 'Gilda')
-    .get('.card').last().contains('p', '06:30 PM')
+    .get('.card').last().contains('p', '03:30 PM')
   });
   
 });

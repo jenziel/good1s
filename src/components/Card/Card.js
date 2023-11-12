@@ -2,10 +2,15 @@ import React from "react";
 import heartFilled from "../../images/heartFilled.png";
 import heartOutline from "../../images/heartOutline.png";
 import "./Card.css";
-import "dayjs/locale/en";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import { useState } from "react";
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function Card({
   key,
@@ -15,6 +20,7 @@ function Card({
 }) {
   const dayjs = require("dayjs");
   dayjs.locale("en");
+  const pacificTimeZone = "America/Los_Angeles";
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleClick = () => {
@@ -102,10 +108,10 @@ function Card({
         
         <div className='timeBox'>
 
-        <p className='card-date'>{dayOfWeekNames[dayjs(showtime.date).day()]} {dayjs(showtime.date).format("MMM. D")}</p>
+        <p className='card-date'>{dayOfWeekNames[dayjs(showtime.date).day()]} {dayjs(showtime.date).tz(pacificTimeZone).format("MMM. D")}</p>
        
               
-        <p className='card-time'>{dayjs(showtime.date).format("hh:mm A")}</p>
+        <p className='card-time'>{dayjs(showtime.date).tz(pacificTimeZone).format("hh:mm A")}</p>
              
         </div>
         </Link>
