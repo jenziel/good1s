@@ -34,8 +34,10 @@
     justify-content: space-between;
 }
 .card-theater-name {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.1rem;
+    margin-bottom: .5rem;
+    color: rgb(92, 92, 92);
 }
 .card-title {
     font-style: italic;
