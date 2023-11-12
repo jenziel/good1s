@@ -19,7 +19,6 @@ function App() {
   const [theaterData, setTheaterData] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const[errorMessage, setErrorMessage] = useState("")
-  const [needToRerender, setNeedToRerender] = useState(false)
 
   useEffect(() => {
     console.log('the selected date is', selectedDate)

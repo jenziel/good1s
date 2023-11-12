@@ -36,12 +36,13 @@ function CardContainer({
     }
     return acc;
   }, []);
-
+console.log('just selected day', justSelectedDay)
   const showtimeCards = justSelectedDay.map((showtime) => {
     if (showtime.movies.length > 0) {
       return (
         <Card
           showtime={showtime}
+          id={showtime['_id']}
           key={showtime.key}
           favorites={favorites}
           setFavorites={setFavorites}
