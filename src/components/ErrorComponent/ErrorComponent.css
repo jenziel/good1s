@@ -1,0 +1,15 @@
+.nav-btn {
+    height: 2.5rem;
+    padding: .5rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    background-color: lightyellow;
+    cursor: pointer;
+}
+.error-page{
+    height: 100dvh;
+    width: 100dvw;
+}
+.error-title {
+    margin-bottom: 2rem;
+}

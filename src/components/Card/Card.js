@@ -5,9 +5,9 @@ import "./Card.css";
 import "dayjs/locale/en";
 import { useState } from "react";
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 function Card({
-  //  title, year, director, date,
   key,
   showtime,
   favorites,
@@ -115,3 +115,10 @@ function Card({
 }
 
 export default Card;
+
+Card.propTypes = {
+  key: PropTypes.string,
+  showtime: PropTypes.object.isRequired,
+  favorites: PropTypes.array.isRequired,
+  setFavorites: PropTypes.func.isRequired
+};
