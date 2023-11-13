@@ -20,11 +20,14 @@
 
 
 ## Preview:
-**Start Page**
+**Browse Dates Page**
+<img width="1437" alt="randomDatePage" src="https://user-images.githubusercontent.com/130857864/282341981-d2684329-dadd-48b8-81ef-03c3838781d6.png">
 
 
 **Favorites Page**
+<img width="1438" alt="favoritesPageEmpty" src="https://user-images.githubusercontent.com/130857864/282342019-d1c83451-fb24-4c9e-b9de-076383377a91.png">
 
+<img width="1437" alt="favoritesPage" src="https://user-images.githubusercontent.com/130857864/282341988-0661f0b0-31b8-4b6b-97cf-3e31f6b8d16a.png">
 
 
 
@@ -34,7 +37,9 @@
 This is a final project for Mod 3 at Turing School of Software & Design. We were given approximately 5 days to create this project from scratch using the [provided comp](https://frontend.turing.edu/projects/module-3/showcase.html).
 
 ## Learning Goals:
-- Demonstrate mastery of:
+~~~~
+Demonstrate mastery of:
+~~~~
 - React
 - Router
 - Asynchronous JavaScript
