@@ -117,15 +117,12 @@ console.log(favorites, 'favorites')
               </div>
             )}
           </div>
-          <div className="timeBox">
-            <p className="card-date">
-              {dayOfWeekNames[dayjs(showtime.date).day()]}{" "}
-              {dayjs(showtime.date).tz(pacificTimeZone).format("MMM. D")}
-            </p>
+         
+          
             <p className="card-time">
               {dayjs(showtime.date).tz(pacificTimeZone).format("hh:mm A")}
             </p>
-          </div>
+        
         </Link>
       </div>
     </div>

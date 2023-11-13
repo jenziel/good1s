@@ -63,10 +63,10 @@ console.log('just selected day', justSelectedDay)
 
   return (
     <div>
-      <NavBar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
       <Link to='/favorites'>
         <button className='favorites-nav-btn nav-btn'>favorited</button>
       </Link>
+      <NavBar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
       <h1 className='date-display'>
         {dayOfWeekNames[dayjs(selectedDate).day()]}{" "}
         {dayjs(selectedDate).format("MMM. D")}

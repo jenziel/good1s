@@ -44,15 +44,18 @@
     font-weight: 700;
     font-size: 1.2rem;
 }
-.card-time {
+p.card-time {
     color: blue;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin: .2rem;
 }
-/* .timeBox {
-    display: flex;
-    flex-direction: row;
-} */
-.card-date {
-    color: lightgray;
-}
+
+@media only screen and (max-width: 600px) {
+ 
+    .card {
+        width: 80dvw;
+    
+    }
+    
+    }
+    
