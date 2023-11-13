@@ -76,8 +76,8 @@ describe('Displays data on pageload', () => {
   })
   it('should have a controlled form.  A user should not be able to enter a date before today or more than 30 days in the future.', ()=> {
     cy.visit('http://localhost:3000/')
-    cy.get('#date').type('2023-11-23').should('have.value', '2023-11-23').trigger('change')
-    cy.get('.date-display').contains('h1', 'Thursday Nov. 23')
+    cy.get('#date').type('2023-11-22').should('have.value', '2023-11-22').trigger('change')
+    cy.get('.date-display').contains('h1', 'Wednesday Nov. 22')
     cy.get('.card').contains('p', 'Brain Dead Studios')
     cy.get('.card').contains('p', 'Anomalisa')
     cy.get('.card').contains('p', '07:00 PM')
