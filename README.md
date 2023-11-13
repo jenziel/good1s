@@ -18,7 +18,8 @@
 ## Abstract:
 Film Scanner is an app for viewing small & independent venues' upcoming events at a glance. Users can select a date from the calendar to see what programming is coming up on that day. 
 
-The app was built using [the Teleological Foundation of Los Angeles](https://teleology.foundation/interface) [Movie Data API](https://teleology.foundation/moviedata).  I first learned about the passion project when a friend showed the app to me.  I love their aspirational mission statement to invite more people to take part in designing interfaces for apps they depend on.  I love this approach to treating websites like flyers that everyone should feel invited to play around with and distribute.  
+The app was built using [the Teleological Foundation of Los Angeles](https://teleology.foundation/interface) [Movie Data API](https://teleology.foundation/moviedata).  I first learned about the passion project when a friend showed the app [good1s](https://www.good1s.org/) to me.  I love their aspirational mission statement to invite more people to take part in designing interfaces for apps they depend on.  I love this approach to treating websites like flyers that everyone should feel invited to play around with and distribute.
+
 
 
 
