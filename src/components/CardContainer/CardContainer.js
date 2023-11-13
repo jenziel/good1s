@@ -43,7 +43,7 @@ console.log('just selected day', justSelectedDay)
         <Card
           showtime={showtime}
           id={showtime['_id']}
-          key={showtime.key}
+          key={showtime['_id']}
           favorites={favorites}
           setFavorites={setFavorites}
         />
