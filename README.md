@@ -9,7 +9,7 @@
 ##### Testing Technologies:
 <img height="60px" src="https://avatars.githubusercontent.com/u/8908513?s=200&v=4"/>
 
-### [View Deployed App](https://good1s-kotfvz51w-jenziel.vercel.app/)
+### [View Deployed App](https://good1s.vercel.app/)
 
 </div>
 
