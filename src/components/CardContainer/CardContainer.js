@@ -18,13 +18,13 @@ function CardContainer({
   favorites,
   setFavorites,
 }) {
-  const pacificTimeZone = "America/Los_Angeles";
+  dayjs.tz.setDefault("America/Los_Angeles");
 
   const justSelectedDay = theaterData.reduce((acc, theater) => {
     if (theater.showtimes && Array.isArray(theater.showtimes)) {
       theater.showtimes.forEach((showtime) => {
-        const showtimeDate = dayjs(showtime.date).tz(pacificTimeZone).format("YYYY-MM-DD");
-        const selectedDateFormatted = dayjs(selectedDate).tz(pacificTimeZone).format("YYYY-MM-DD");
+        const showtimeDate = dayjs(showtime.date).tz().format("YYYY-MM-DD");
+        const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
         if (showtimeDate === selectedDateFormatted) {
           return acc.push({
             ...showtime,
@@ -36,14 +36,14 @@ function CardContainer({
     }
     return acc;
   }, []);
-console.log('just selected day', justSelectedDay)
+
   const showtimeCards = justSelectedDay.map((showtime) => {
     if (showtime.movies.length > 0) {
       return (
         <Card
           showtime={showtime}
-          id={showtime['_id']}
-          key={showtime['_id']}
+          id={showtime["_id"]}
+          key={showtime["_id"]}
           favorites={favorites}
           setFavorites={setFavorites}
         />
@@ -81,7 +81,7 @@ export default CardContainer;
 CardContainer.propTypes = {
   theaterData: PropTypes.array.isRequired,
   setSelectedDate: PropTypes.func.isRequired,
-  selectedDate: PropTypes.string.isRequired,
+  selectedDate: PropTypes.object.isRequired,
   favorites: PropTypes.array.isRequired,
   setFavorites: PropTypes.func.isRequired,
 };
