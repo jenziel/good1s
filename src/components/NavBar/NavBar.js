@@ -13,7 +13,8 @@ function NavBar({ setSelectedDate }) {
   dayjs.tz.setDefault("America/Los_Angeles");
   const today = dayjs().tz();
   const todayFormatted = today.format("YYYY-MM-DD");
-  const date30DaysLater = today.add(30, "day").format("YYYY-MM-DD");
+  const date30DaysLater = today.add(30, "day")
+  const maxDateFormatted = date30DaysLater.format("YYYY-MM-DD");
   const [inputValue, setInputValue] = useState(today.format("YYYY-MM-DD"));
 
   const handleDateChange = (event) => {
@@ -40,7 +41,7 @@ function NavBar({ setSelectedDate }) {
           name='date'
           value={inputValue}
           min={todayFormatted}
-          max={date30DaysLater}
+          max={maxDateFormatted}
           onChange={handleDateChange}
         />
       </form>
