@@ -1,6 +1,6 @@
 # Film Scanner
 <div align="center">
-<img width="500px" src="https://github.com/jenziel/good1s/assets/130857864/5c194d39-11c4-412b-acf7-b0b7d38d04c0" /> 
+<!-- <img width="500px" src="https://github.com/jenziel/good1s/assets/130857864/5c194d39-11c4-412b-acf7-b0b7d38d04c0" />  -->
 
 
 ##### Built With: 
