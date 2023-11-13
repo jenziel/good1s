@@ -44,11 +44,12 @@ This is a final project for Mod 3 at Turing School of Software & Design. We were
 ## Learning Goals:
 ~~~~
 Demonstrate mastery of:
-~~~~
 - React
 - Router
 - Asynchronous JavaScript
 - End to end testing with Cypress
+~~~~
+
 
 
 ## Installation Instructions:
