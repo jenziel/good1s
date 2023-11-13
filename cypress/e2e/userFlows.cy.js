@@ -38,7 +38,7 @@ describe('Displays data on pageload', () => {
     cy.url().should('include', '/favorites')
     cy.get('.fav-title').contains('h1', 'Favorited')
   })
-  it('Should go to a new page when the favorites button is clicked.  If no favorites, it should show a message.', () => {
+  it('Should have a favorites page.  The cards should have favoriting buttons to toggle a favorite feature.', () => {
     cy.visit('http://localhost:3000/')
     cy.get('.favorites-nav-btn').contains('favorited').click()
     cy.url().should('include', '/favorites')
@@ -47,6 +47,18 @@ describe('Displays data on pageload', () => {
     cy.get('.favorited-message').contains('p', 'When you save a movie it will appear here.')
     cy.get('.favorites-nav-btn').contains('back to home').click()
     cy.url().should('include', '/')
+    cy.get('.favorites-btn').should('have.length', 4 )
+    cy.get('.favorites-img').first().should('have.attr', 'alt').and('include', 'heart outline')
+    cy.get('.favorites-btn').first().click()
+    cy.get('.favorites-img').first().should('have.attr', 'alt').and('include', 'heart filled')
+    cy.get('.favorites-btn').last().click()
+    cy.get('.favorites-nav-btn').contains('favorited').click()
+    cy.get('.fav-title').contains('h1', 'Favorited')
+    cy.get('.card').should('have.length', 2 )
+    cy.get('.card').first().contains('p', 'Desperately Seeking: Sofia Coppola in the New Millenium – Lost in Translation')
+    cy.get('.card').last().contains('p', 'Gilda')
+    cy.get('.favorites-btn').first().click()
+    cy.get('.card').should('have.length', 1 )
   }
   )
   it('should handle a 404 error for a bad route.', ()=> {

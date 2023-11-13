@@ -58,7 +58,7 @@ console.log(favorites, 'favorites')
           ) : (
             <img
               src={heartFilled}
-              alt="heart outline"
+              alt="heart filled"
               className="favorites-img"
             />
           )}
