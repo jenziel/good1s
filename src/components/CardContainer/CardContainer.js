@@ -34,7 +34,6 @@ function CardContainer({
         }
       });
     }
-    console.log('acc', acc)
     return acc;
   }, []);
 
