@@ -18,7 +18,6 @@ function Card({
 }) {
   const pacificTimeZone = "America/Los_Angeles";
 
-console.log(favorites, 'favorites')
   function isFavorite() {
     return favorites.some((favorite) => favorite['_id'] === showtime['_id']);
   }
@@ -46,7 +45,7 @@ console.log(favorites, 'favorites')
   ];
 
   return (
-    <div className="card">
+    <div key={showtime['_id']} className="card">
       <div className="favorites-btn-container">
         <button className="favorites-btn" onClick={toggleFavorite}>
           {!isFavorite() ? (

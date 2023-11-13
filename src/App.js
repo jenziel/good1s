@@ -13,9 +13,9 @@ dayjs.extend(timezone);
 dayjs.extend(utc);
 
 function App() {
-  const dayjs = require("dayjs");
-  dayjs.locale("en");
-  const [selectedDate, setSelectedDate] = useState(dayjs().toISOString());
+  dayjs.tz.setDefault("America/Los_Angeles");
+  const today = dayjs()
+  const [selectedDate, setSelectedDate] = useState(today);
   const [theaterData, setTheaterData] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const[errorMessage, setErrorMessage] = useState("")
@@ -56,11 +56,6 @@ function App() {
         setErrorMessage(error.message);
       });
   }
-
-  
-  // useEffect(() => {
-  //   getTheaterKeysArray()
-  // }, []);
 
   useEffect(() => {
     if(errorMessage === ""){

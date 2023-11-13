@@ -26,7 +26,7 @@ function FavoritesPage({ favorites, setFavorites }) {
   const favoriteCards = favorites.map((showtime) => {
     
     return (
-      <div>
+      <div key={showtime['_id']}>
         <p className="card-date">
               {dayOfWeekNames[dayjs(showtime.date).day()]}{" "}
               {dayjs(showtime.date).tz(pacificTimeZone).format("MMM. D")}
