@@ -23,7 +23,7 @@ function CardContainer({
   const justSelectedDay = theaterData.reduce((acc, theater) => {
     if (theater.showtimes && Array.isArray(theater.showtimes)) {
       theater.showtimes.forEach((showtime) => {
-        const showtimeDate = dayjs(showtime.date).format("YYYY-MM-DD");
+        const showtimeDate = dayjs(showtime.date).tz().format("YYYY-MM-DD");
         const selectedDateFormatted = dayjs(selectedDate).format("YYYY-MM-DD");
         if (showtimeDate === selectedDateFormatted) {
           return acc.push({
@@ -34,6 +34,7 @@ function CardContainer({
         }
       });
     }
+    console.log('acc', acc)
     return acc;
   }, []);
 

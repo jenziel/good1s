@@ -14,7 +14,7 @@ dayjs.extend(utc);
 
 function App() {
   dayjs.tz.setDefault("America/Los_Angeles");
-  const today = dayjs()
+  const today = dayjs().tz()
   const [selectedDate, setSelectedDate] = useState(today);
   const [theaterData, setTheaterData] = useState([]);
   const [favorites, setFavorites] = useState([]);
